@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
 group = 'com.example'
@@ -17,3 +18,23 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            url "https://trialbqpt94.jfrog.io/artifactory/gradle_repo_deploy"
+            credentials {
+                username = project.findProperty("username") ?: ""
+                password = project.findProperty("password") ?: ""
+            }
+        }
+    }
+}
+
+
