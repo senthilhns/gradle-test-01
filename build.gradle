@@ -28,7 +28,7 @@ publishing {
 
     repositories {
         maven {
-            url "https://trialbqpt94.jfrog.io/artifactory/gradle_repo_deploy"
+            url "https://trialbqpt94.jfrog.io/artifactory/repo_deploy_gradle_02"
             credentials {
                 username = project.findProperty("username") ?: ""
                 password = project.findProperty("password") ?: ""
